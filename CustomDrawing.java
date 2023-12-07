@@ -1,5 +1,6 @@
 import javax.swing.JLabel;
 import java.awt.Graphics;
+import java.awt.Polygon;
 
 public class CustomDrawing extends JLabel {
     private void drawLine(Graphics g, Dot start, Dot dest, int size) {
@@ -15,13 +16,24 @@ public class CustomDrawing extends JLabel {
         }
     }
 
+    private void drawTriangle(Graphics g, Dot d1, Dot d2, Dot d3) {
+        g.fillPolygon(
+                new int[] { d1.x, d2.x, d3.x },
+                new int[] { d1.y, d2.y, d3.y },
+                3);
+    }
+
     private void plot(Graphics g, int x, int y, int size) {
         g.fillRect(x, y, size, size);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        drawLine(g, new Dot(5, 10), new Dot(600, 500), 10);
+        // drawLine(g, new Dot(5, 10), new Dot(600, 500), 10);
+        drawTriangle(g,
+                new Dot(10, 200),
+                new Dot(60, 100),
+                new Dot(110, 100));
         super.paintComponent(g);
     }
 }
