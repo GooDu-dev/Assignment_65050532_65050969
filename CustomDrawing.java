@@ -23,6 +23,10 @@ public class CustomDrawing extends JLabel {
                 3);
     }
 
+    private void drawCurve(){
+        
+    }
+
     private void plot(Graphics g, int x, int y, int size) {
         g.fillRect(x, y, size, size);
     }
