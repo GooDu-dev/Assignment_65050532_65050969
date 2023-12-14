@@ -1,5 +1,6 @@
 import javax.swing.JLabel;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Polygon;
 
 public class CustomDrawing extends JLabel {
@@ -18,13 +19,36 @@ public class CustomDrawing extends JLabel {
 
     private void drawTriangle(Graphics g, Dot d1, Dot d2, Dot d3) {
         g.fillPolygon(
-                new int[] { d1.x, d2.x, d3.x },
-                new int[] { d1.y, d2.y, d3.y },
-                3);
+            new int[] { d1.x, d2.x, d3.x },
+            new int[] { d1.y, d2.y, d3.y },
+        3);
     }
 
-    private void drawCurve(){
-        
+    private void drawCurve(Graphics2D g, Dot[] dots){
+        //this ;ine draw ctrl dots
+        for (Dot dot : dots) {
+            g.fillOval(dot.getX() - 3, dot.getY() - 3, 6, 6);
+        }
+        if (dots.length < 2) return;
+        int n = dots.length - 1;
+        for (double t = 0.0; t <= 1.0; t += 0.01) {
+            int[] x = new int[dots.length];
+            int[] y = new int[dots.length];
+
+            for (int i = 0; i < dots.length; i++) {
+                x[i] = dots[i].getX();
+                y[i] = dots[i].getY();
+            }
+
+            for (int r = 1; r <= n; r++) {
+                for (int i = 0; i <= n - r; i++) {
+                    x[i] = (int) ((1 - t) * x[i] + t * x[i + 1]);
+                    y[i] = (int) ((1 - t) * y[i] + t * y[i + 1]);
+                }
+            }
+
+            g.drawLine(x[0], y[0], x[0], y[0]);
+        }
     }
 
     private void plot(Graphics g, int x, int y, int size) {
@@ -38,6 +62,24 @@ public class CustomDrawing extends JLabel {
                 new Dot(10, 200),
                 new Dot(60, 100),
                 new Dot(110, 100));
+        drawCurve(
+            (Graphics2D) g, new Dot[]{
+                new Dot(50, 200),
+                new Dot(150, 100),
+                new Dot(250, 300),
+                new Dot(350, 200)
+            }
+            
+        );
+        drawCurve(
+            (Graphics2D) g, new Dot[]{
+                new Dot(90, 300),
+                new Dot(25, 175),
+                new Dot(150, 10),
+                new Dot(90, 30)
+            }
+            
+        );
         super.paintComponent(g);
     }
 }
