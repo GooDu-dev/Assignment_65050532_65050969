@@ -11,9 +11,9 @@ public class App extends JFrame {
     }
 
     public void draw() {
-        CustomDrawing cd = new CustomDrawing();
-        add(cd);
         Sun s = new Sun();
         add(s);
+        Cloud c = new Cloud();
+        add(c);
     }
 }

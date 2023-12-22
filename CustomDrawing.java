@@ -51,24 +51,6 @@ public class CustomDrawing extends JLabel {
     private void plot(Graphics g, int x, int y, int size) {
         g.fillRect(x, y, size, size);
     }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        // drawLine(g, new Dot(5, 10), new Dot(600, 500), 10);
-        drawTriangle(g,
-                new Dot(10, 200),
-                new Dot(60, 100),
-                new Dot(110, 100));
-        drawCurve(g,
-                new Dot[] {
-                        new Dot(50, 200),
-                        new Dot(250, 100),
-                        new Dot(50, 400),
-                }
-
-        );
-        super.paintComponent(g);
-    }
 }
 
 class Dot {
