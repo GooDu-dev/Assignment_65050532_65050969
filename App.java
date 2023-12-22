@@ -12,9 +12,8 @@ public class App extends JFrame {
 
     public void draw() {
         Sun s = new Sun();
+        this.getContentPane().add(s);
         Cloud c = new Cloud();
-
-        add(s);
-        add(c);
+        this.getContentPane().add(c);
     }
 }
