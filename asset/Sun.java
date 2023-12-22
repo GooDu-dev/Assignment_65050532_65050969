@@ -4,8 +4,8 @@ import java.awt.Graphics;
 
 import javax.swing.JLabel;
 
-import asset.drawer.CustomDrawing;
-import asset.drawer.Dot;
+import asset.draw.CustomDrawing;
+import asset.draw.Dot;
 
 public class Sun extends JLabel {
     Dot[][] sun;

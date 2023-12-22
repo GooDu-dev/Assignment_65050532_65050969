@@ -1,4 +1,4 @@
-package asset.drawer;
+package asset.draw;
 
 import javax.swing.JLabel;
 import java.awt.Graphics;
