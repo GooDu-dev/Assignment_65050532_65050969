@@ -1,8 +1,7 @@
-import java.awt.FlowLayout;
-
 import javax.swing.JFrame;
 
 import asset.Cloud;
+import asset.Picture;
 import asset.Sun;
 
 public class App extends JFrame {
@@ -17,11 +16,7 @@ public class App extends JFrame {
     }
 
     public void draw() {
-        Cloud c = new Cloud();
-        c.setBounds(100, 100, 100, 50);
-        this.getContentPane().add(c);
-        Sun s = new Sun();
-        s.setBounds(300, 200, 50, 50);
-        this.getContentPane().add(s);
+        Picture p = new Picture();
+        this.getContentPane().add(p);
     }
 }

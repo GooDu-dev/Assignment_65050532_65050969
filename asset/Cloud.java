@@ -10,7 +10,7 @@ import asset.draw.Dot;
 
 public class Cloud extends JPanel {
 
-    private void draw(Graphics g) {
+    void draw(Graphics g) {
         CustomDrawing cd = new CustomDrawing();
         Dot[] dots = new Dot[] {
                 new Dot(100, 100),
@@ -19,11 +19,4 @@ public class Cloud extends JPanel {
         };
         cd.drawCurve(g, dots);
     }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        draw(g);
-    }
-
 }

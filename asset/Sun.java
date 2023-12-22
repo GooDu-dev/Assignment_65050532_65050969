@@ -28,10 +28,4 @@ public class Sun extends JPanel {
             customDrawing.drawCurve(g, sun[i]);
         }
     }
-
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        drawSun(g);
-    }
 }
