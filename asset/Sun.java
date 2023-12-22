@@ -8,22 +8,18 @@ import asset.drawer.CustomDrawing;
 import asset.drawer.Dot;
 
 public class Sun extends JLabel {
-    Dot[][] sun;
-
-    public Sun() {
-        sun = new Dot[][] {
-                new Dot[] {
-                        new Dot(50, 200),
-                        new Dot(250, 100),
-                        new Dot(50, 400),
-                },
-                new Dot[] {
-                        new Dot(50, 400),
-                        new Dot(500, 200),
-                        new Dot(50, 600),
-                },
-        };
-    }
+    Dot[][] sun = new Dot[][] {
+            new Dot[] {
+                    new Dot(50, 200),
+                    new Dot(250, 100),
+                    new Dot(50, 400),
+            },
+            new Dot[] {
+                    new Dot(50, 400),
+                    new Dot(500, 200),
+                    new Dot(50, 600),
+            },
+    };
 
     public void drawSun(Graphics g) {
         CustomDrawing customDrawing = new CustomDrawing();
