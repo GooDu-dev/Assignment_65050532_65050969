@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class CustomDrawing extends JLabel {
-    private void drawLine(Graphics g, Dot start, Dot dest, int size) {
+    public void drawLine(Graphics g, Dot start, Dot dest, int size) {
         int m = 2 * (dest.y - start.y);
         int slope_error = m - (dest.x - start.x);
         for (int x = start.x, y = start.y; x <= dest.x; x++) {
@@ -16,14 +16,14 @@ public class CustomDrawing extends JLabel {
         }
     }
 
-    private void drawTriangle(Graphics g, Dot d1, Dot d2, Dot d3) {
+    public void drawTriangle(Graphics g, Dot d1, Dot d2, Dot d3) {
         g.fillPolygon(
             new int[] { d1.x, d2.x, d3.x },
             new int[] { d1.y, d2.y, d3.y },
         3);
     }
 
-    private void drawCurve(Graphics g, Dot[] dots){
+    public void drawCurve(Graphics g, Dot[] dots){
         if (dots.length < 2) return;
         int n = dots.length - 1;
         for (double t = 0.0; t <= 1.0; t += 0.001) {
