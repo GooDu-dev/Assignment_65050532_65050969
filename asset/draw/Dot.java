@@ -1,4 +1,4 @@
-package asset.drawer;
+package asset.draw;
 
 public class Dot {
     int x, y;
