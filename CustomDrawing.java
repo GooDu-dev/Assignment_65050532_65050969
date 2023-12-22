@@ -1,7 +1,6 @@
 import javax.swing.JLabel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Polygon;
 
 public class CustomDrawing extends JLabel {
     private void drawLine(Graphics g, Dot start, Dot dest, int size) {
@@ -24,14 +23,10 @@ public class CustomDrawing extends JLabel {
         3);
     }
 
-    private void drawCurve(Graphics2D g, Dot[] dots){
-        //this ;ine draw ctrl dots
-        for (Dot dot : dots) {
-            g.fillOval(dot.getX() - 3, dot.getY() - 3, 6, 6);
-        }
+    private void drawCurve(Graphics g, Dot[] dots){
         if (dots.length < 2) return;
         int n = dots.length - 1;
-        for (double t = 0.0; t <= 1.0; t += 0.01) {
+        for (double t = 0.0; t <= 1.0; t += 0.0001) {
             int[] x = new int[dots.length];
             int[] y = new int[dots.length];
 
@@ -62,21 +57,12 @@ public class CustomDrawing extends JLabel {
                 new Dot(10, 200),
                 new Dot(60, 100),
                 new Dot(110, 100));
-        drawCurve(
-            (Graphics2D) g, new Dot[]{
+        drawCurve(g,
+            new Dot[]{
                 new Dot(50, 200),
                 new Dot(150, 100),
                 new Dot(250, 300),
                 new Dot(350, 200)
-            }
-            
-        );
-        drawCurve(
-            (Graphics2D) g, new Dot[]{
-                new Dot(90, 300),
-                new Dot(25, 175),
-                new Dot(150, 10),
-                new Dot(90, 30)
             }
             
         );
