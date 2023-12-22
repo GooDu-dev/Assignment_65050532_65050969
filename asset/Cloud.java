@@ -2,7 +2,6 @@ package asset;
 
 import java.awt.Graphics;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import asset.draw.CustomDrawing;
