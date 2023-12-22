@@ -12,7 +12,7 @@ public class Sun extends JLabel{
   },
   new Dot[]{
    new Dot(50, 400),
-   new Dot(350, 200),
+   new Dot(500, 200),
    new Dot(50, 600),
   },
  };
@@ -25,9 +25,7 @@ public class Sun extends JLabel{
 
  void drawSun(Graphics g){
   for(int i = 0; i < sun.length; i++){
-   for(int j = 0; j < sun[i].length; j++){
-    customDrawing.drawCurve(g, sun[i]);
-   }
+   customDrawing.drawCurve(g, sun[i]);
   }
  }
 }
