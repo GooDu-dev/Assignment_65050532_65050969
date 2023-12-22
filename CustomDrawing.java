@@ -18,13 +18,14 @@ public class CustomDrawing extends JLabel {
 
     public void drawTriangle(Graphics g, Dot d1, Dot d2, Dot d3) {
         g.fillPolygon(
-            new int[] { d1.x, d2.x, d3.x },
-            new int[] { d1.y, d2.y, d3.y },
-        3);
+                new int[] { d1.x, d2.x, d3.x },
+                new int[] { d1.y, d2.y, d3.y },
+                3);
     }
 
-    public void drawCurve(Graphics g, Dot[] dots){
-        if (dots.length < 2) return;
+    public void drawCurve(Graphics g, Dot[] dots) {
+        if (dots.length < 2)
+            return;
         int n = dots.length - 1;
         for (double t = 0.0; t <= 1.0; t += 0.001) {
             int[] x = new int[dots.length];
@@ -59,12 +60,12 @@ public class CustomDrawing extends JLabel {
                 new Dot(60, 100),
                 new Dot(110, 100));
         drawCurve(g,
-            new Dot[]{
-                new Dot(50, 200),
-                new Dot(250, 100),
-                new Dot(50, 400),
-            }
-            
+                new Dot[] {
+                        new Dot(50, 200),
+                        new Dot(250, 100),
+                        new Dot(50, 400),
+                }
+
         );
         super.paintComponent(g);
     }
