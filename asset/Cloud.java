@@ -3,11 +3,12 @@ package asset;
 import java.awt.Graphics;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import asset.draw.CustomDrawing;
 import asset.draw.Dot;
 
-public class Cloud extends JLabel {
+public class Cloud extends JPanel {
 
     private void draw(Graphics g) {
         CustomDrawing cd = new CustomDrawing();
@@ -21,8 +22,8 @@ public class Cloud extends JLabel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        draw(g);
         super.paintComponent(g);
+        draw(g);
     }
 
 }

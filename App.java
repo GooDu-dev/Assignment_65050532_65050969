@@ -13,12 +13,15 @@ public class App extends JFrame {
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        getContentPane().setLayout(null);
     }
 
     public void draw() {
         Cloud c = new Cloud();
+        c.setBounds(100, 100, 100, 50);
         this.getContentPane().add(c);
         Sun s = new Sun();
+        s.setBounds(300, 200, 50, 50);
         this.getContentPane().add(s);
     }
 }

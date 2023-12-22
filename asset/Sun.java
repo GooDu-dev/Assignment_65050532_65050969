@@ -3,11 +3,12 @@ package asset;
 import java.awt.Graphics;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import asset.draw.CustomDrawing;
 import asset.draw.Dot;
 
-public class Sun extends JLabel {
+public class Sun extends JPanel {
     Dot[][] sun = new Dot[][] {
             new Dot[] {
                     new Dot(50, 200),
@@ -30,7 +31,7 @@ public class Sun extends JLabel {
 
     @Override
     public void paintComponent(Graphics g) {
-        drawSun(g);
         super.paintComponent(g);
+        drawSun(g);
     }
 }
