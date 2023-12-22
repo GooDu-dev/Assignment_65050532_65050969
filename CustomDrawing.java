@@ -26,7 +26,7 @@ public class CustomDrawing extends JLabel {
     private void drawCurve(Graphics g, Dot[] dots){
         if (dots.length < 2) return;
         int n = dots.length - 1;
-        for (double t = 0.0; t <= 1.0; t += 0.0001) {
+        for (double t = 0.0; t <= 1.0; t += 0.001) {
             int[] x = new int[dots.length];
             int[] y = new int[dots.length];
 
@@ -44,6 +44,7 @@ public class CustomDrawing extends JLabel {
 
             g.drawLine(x[0], y[0], x[0], y[0]);
         }
+
     }
 
     private void plot(Graphics g, int x, int y, int size) {
@@ -60,9 +61,8 @@ public class CustomDrawing extends JLabel {
         drawCurve(g,
             new Dot[]{
                 new Dot(50, 200),
-                new Dot(150, 100),
-                new Dot(250, 300),
-                new Dot(350, 200)
+                new Dot(250, 100),
+                new Dot(50, 400),
             }
             
         );
