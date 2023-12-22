@@ -49,12 +49,82 @@ public class CustomDrawing extends JLabel {
 
     }
 
-    public void drawCircle() {
-
+    public void drawCircle(Graphics g, Dot center, int radius) {
+        int x = 0;
+        int y = radius;
+        int d = 3 - 2 * radius;
+        while (y >= x) {
+            plotCircle(g, center, x, y);
+            x++;
+            if (d > 0) {
+                y--;
+                d = d + 4 * (x - y) + 10;
+            } else {
+                d = d + 4 * x + 6;
+            }
+            plotCircle(g, center, x, y);
+        }
     }
+
+    private void plotCircle(Graphics g, Dot center, int x, int y) {
+        plot(g, center.x + x, center.y + y, 1);
+        plot(g, center.x + x, center.y - y, 1);
+        plot(g, center.x - x, center.y + y, 1);
+        plot(g, center.x - x, center.y - y, 1);
+        plot(g, center.x + y, center.y + x, 1);
+        plot(g, center.x + y, center.y - x, 1);
+        plot(g, center.x - y, center.y + x, 1);
+        plot(g, center.x - y, center.y - x, 1);
+    }
+
+    // public void drawOval(Graphics g, Dot center, int radiusA, int radiusB) {
+    // int x = 0;
+    // int y = radiusB;
+    // long radiusASquare = radiusA * radiusB;
+    // long radiusBSquare = radiusA * radiusB;
+    // long twoASquare = 2 * radiusASquare;
+    // long twoBSquare = 2 * radiusBSquare;
+    // long xChange = radiusBSquare * (1 - 2 * radiusA) + radiusASquare;
+    // long yChange = radiusBSquare - radiusBSquare * (2 * radiusB + 1);
+    // while (radiusASquare * y >= radiusBSquare * x) {
+    // plotOval(g, center, x, y);
+
+    // x++;
+    // if (xChange < 0) {
+    // xChange += twoBSquare * x + radiusBSquare;
+    // } else {
+    // y--;
+    // xChange += twoBSquare * x + radiusBSquare - twoASquare * y;
+    // yChange -= twoASquare * y - radiusASquare;
+    // }
+    // }
+    // x = radiusA;
+    // y = 0;
+    // xChange = radiusBSquare - radiusASquare * (2 * radiusB + 1);
+    // yChange = radiusASquare * (1 - 2 * radiusB) + radiusBSquare;
+
+    // while (radiusASquare * y <= radiusBSquare * x) {
+    // plotOval(g, center, x, y);
+
+    // y++;
+    // if (yChange < 0) {
+    // yChange += twoASquare * y + radiusASquare;
+    // } else {
+    // x--;
+    // yChange += twoASquare * y + radiusASquare - twoBSquare * x;
+    // xChange -= twoBSquare * x - radiusBSquare;
+    // }
+    // }
+    // }
+
+    // private void plotOval(Graphics g, Dot center, int x, int y) {
+    // plot(g, center.x + x, center.y + y, 1);
+    // plot(g, center.x + x, center.y - y, 1);
+    // plot(g, center.x - x, center.y + y, 1);
+    // plot(g, center.x - x, center.y - y, 1);
+    // }
 
     private void plot(Graphics g, int x, int y, int size) {
         g.fillRect(x, y, size, size);
     }
 }
-

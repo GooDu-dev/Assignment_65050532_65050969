@@ -16,6 +16,7 @@ public class Cloud extends JPanel {
                 new Dot(180, 250),
                 new Dot(250, 100)
         };
-        cd.drawCurve(g, dots);
+        // cd.drawCurve(g, dots);
+        cd.drawOval(g, new Dot(100, 100), 50, 100);
     }
 }
