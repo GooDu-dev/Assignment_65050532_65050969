@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JLabel;
@@ -16,8 +17,8 @@ public class Cloud extends JLabel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        draw(g);
         super.paintComponent(g);
+        draw(g);
     }
 
 }

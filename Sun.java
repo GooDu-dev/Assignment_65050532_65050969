@@ -17,15 +17,14 @@ public class Sun extends JLabel{
   },
  };
  
- @Override
- protected void paintComponent(Graphics g){
-  drawSun(g);
-  super.paintComponent(g);
- }
-
- void drawSun(Graphics g){
+ public void drawSun(Graphics g){
   for(int i = 0; i < sun.length; i++){
    customDrawing.drawCurve(g, sun[i]);
   }
+ }
+
+ @Override
+ public void paintComponent(Graphics g){
+  drawSun(g);
  }
 }
