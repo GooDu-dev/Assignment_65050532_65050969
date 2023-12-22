@@ -31,10 +31,4 @@ public class Sun extends JLabel {
             customDrawing.drawCurve(g, sun[i]);
         }
     }
-
-    @Override
-    public void paintComponent(Graphics g) {
-        drawSun(g);
-        super.paintComponent(g);
-    }
 }
