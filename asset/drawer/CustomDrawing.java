@@ -1,6 +1,7 @@
+package asset.drawer;
+
 import javax.swing.JLabel;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 
 public class CustomDrawing extends JLabel {
     public void drawLine(Graphics g, Dot start, Dot dest, int size) {
@@ -48,24 +49,12 @@ public class CustomDrawing extends JLabel {
 
     }
 
+    public void drawCircle() {
+
+    }
+
     private void plot(Graphics g, int x, int y, int size) {
         g.fillRect(x, y, size, size);
     }
 }
 
-class Dot {
-    int x, y;
-
-    public Dot(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-}

@@ -1,7 +1,11 @@
-import java.awt.Color;
+package asset;
+
 import java.awt.Graphics;
 
 import javax.swing.JLabel;
+
+import asset.drawer.CustomDrawing;
+import asset.drawer.Dot;
 
 public class Cloud extends JLabel {
 
@@ -17,8 +21,8 @@ public class Cloud extends JLabel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
         draw(g);
+        super.paintComponent(g);
     }
 
 }

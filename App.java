@@ -1,4 +1,9 @@
+import java.awt.FlowLayout;
+
 import javax.swing.JFrame;
+
+import asset.Cloud;
+import asset.Sun;
 
 public class App extends JFrame {
     static final int WIDTH = 800, HEIGHT = 600;
@@ -11,9 +16,9 @@ public class App extends JFrame {
     }
 
     public void draw() {
-        Sun s = new Sun();
-        this.getContentPane().add(s);
         Cloud c = new Cloud();
         this.getContentPane().add(c);
+        Sun s = new Sun();
+        this.getContentPane().add(s);
     }
 }
