@@ -10,6 +10,7 @@ public class App extends JFrame {
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        getContentPane().setLayout(null);
     }
 
     public void draw() {
