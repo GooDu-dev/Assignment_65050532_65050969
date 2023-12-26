@@ -9,6 +9,15 @@ import asset.draw.Dot;
 
 public class Cloud extends JPanel {
 
+    private Dot center;
+    private int size_x, size_y;
+
+    // public Cloud(Dot center, int size_x, int size_y) {
+    // this.center = center;
+    // this.size_x = size_x;
+    // this.size_y = size_y;
+    // }
+
     void draw(Graphics g) {
         CustomDrawing cd = new CustomDrawing();
         Dot[] dots = new Dot[] {
@@ -17,6 +26,6 @@ public class Cloud extends JPanel {
                 new Dot(250, 100)
         };
         // cd.drawCurve(g, dots);
-        cd.drawOval(g, new Dot(100, 100), 50, 100);
+        cd.drawOval(g, new Dot(100, 100), 100, 50);
     }
 }

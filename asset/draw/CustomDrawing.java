@@ -117,12 +117,59 @@ public class CustomDrawing extends JLabel {
     // }
     // }
 
-    // private void plotOval(Graphics g, Dot center, int x, int y) {
-    // plot(g, center.x + x, center.y + y, 1);
-    // plot(g, center.x + x, center.y - y, 1);
-    // plot(g, center.x - x, center.y + y, 1);
-    // plot(g, center.x - x, center.y - y, 1);
-    // }
+    public void drawOval(Graphics g, Dot center, int rx, int ry) {
+
+        float dx, dy, d1, d2;
+        int x, y;
+        x = 0;
+        y = ry;
+
+        d1 = (ry * ry) - (rx * rx * ry) +
+                (0.25f * rx * rx);
+        dx = 2 * ry * ry * x;
+        dy = 2 * rx * rx * y;
+
+        while (dx < dy) {
+            plotOval(g, center, x, y);
+            if (d1 < 0) {
+                x++;
+                dx = dx + (2 * ry * ry);
+                d1 = d1 + dx + (ry * ry);
+            } else {
+                x++;
+                y--;
+                dx = dx + (2 * ry * ry);
+                dy = dy - (2 * rx * rx);
+                d1 = d1 + dx - dy + (ry * ry);
+            }
+        }
+
+        d2 = ((ry * ry) * ((x + 0.5f) * (x + 0.5f)))
+                + ((rx * rx) * ((y - 1) * (y - 1)))
+                - (rx * rx * ry * ry);
+
+        while (y >= 0) {
+            plotOval(g, center, x, y);
+            if (d2 > 0) {
+                y--;
+                dy = dy - (2 * rx * rx);
+                d2 = d2 + (rx * rx) - dy;
+            } else {
+                y--;
+                x++;
+                dx = dx + (2 * ry * ry);
+                dy = dy - (2 * rx * rx);
+                d2 = d2 + dx - dy + (rx * rx);
+            }
+        }
+    }
+
+    private void plotOval(Graphics g, Dot center, int x, int y) {
+        plot(g, center.x + x, center.y + y, 1);
+        plot(g, center.x + x, center.y - y, 1);
+        plot(g, center.x - x, center.y + y, 1);
+        plot(g, center.x - x, center.y - y, 1);
+    }
 
     private void plot(Graphics g, int x, int y, int size) {
         g.fillRect(x, y, size, size);
