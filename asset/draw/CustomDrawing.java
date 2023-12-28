@@ -67,14 +67,14 @@ public class CustomDrawing extends JLabel {
     }
 
     private void plotCircle(Graphics g, Dot center, int x, int y) {
-        plot(g, center.x + x, center.y + y, 1);
-        plot(g, center.x + x, center.y - y, 1);
-        plot(g, center.x - x, center.y + y, 1);
-        plot(g, center.x - x, center.y - y, 1);
-        plot(g, center.x + y, center.y + x, 1);
-        plot(g, center.x + y, center.y - x, 1);
-        plot(g, center.x - y, center.y + x, 1);
-        plot(g, center.x - y, center.y - x, 1);
+        plot(g, center.getX() + x, center.getY() + y, 1);
+        plot(g, center.getX() + x, center.getY() - y, 1);
+        plot(g, center.getX() - x, center.getY() + y, 1);
+        plot(g, center.getX() - x, center.getY() - y, 1);
+        plot(g, center.getX() + y, center.getY() + x, 1);
+        plot(g, center.getX() + y, center.getY() - x, 1);
+        plot(g, center.getX() - y, center.getY() + x, 1);
+        plot(g, center.getX() - y, center.getY() - x, 1);
     }
 
     // public void drawOval(Graphics g, Dot center, int radiusA, int radiusB) {
@@ -165,10 +165,10 @@ public class CustomDrawing extends JLabel {
     }
 
     private void plotOval(Graphics g, Dot center, int x, int y) {
-        plot(g, center.x + x, center.y + y, 1);
-        plot(g, center.x + x, center.y - y, 1);
-        plot(g, center.x - x, center.y + y, 1);
-        plot(g, center.x - x, center.y - y, 1);
+        plot(g, center.getX() + x, center.getY() + y, 1);
+        plot(g, center.getX() + x, center.getY() - y, 1);
+        plot(g, center.getX() - x, center.getY() + y, 1);
+        plot(g, center.getX() - x, center.getY() - y, 1);
     }
 
     private void plot(Graphics g, int x, int y, int size) {
