@@ -21,7 +21,7 @@ public class Sun extends JPanel {
             },
     };
 
-    public void drawSun(Graphics g) {
+    public void drawSun(Graphics g, Dot centerPoint) {
         CustomDrawing customDrawing = new CustomDrawing();
         for (int i = 0; i < sun.length; i++) {
             customDrawing.drawCurve(g, sun[i]);
