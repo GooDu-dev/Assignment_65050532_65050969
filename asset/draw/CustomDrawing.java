@@ -42,7 +42,7 @@ public class CustomDrawing extends JLabel {
         int[] x = new int[dots.length];
         int[] y = new int[dots.length];
     
-        for (double t = 0.0; t <= 1.0; t += 0.0000001) {
+        for (double t = 0.0; t <= 1.0; t += 0.00000001) {
             for (int i = 0; i < dots.length; i++) {
                 x[i] = dots[i].getX();
                 y[i] = dots[i].getY();

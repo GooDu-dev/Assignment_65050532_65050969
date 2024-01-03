@@ -20,6 +20,6 @@ public class Picture extends JLabel {
         sun.drawSun(g, new Dot(300, 300), 50, 10, 14, 0);
         cloud.draw(g);
         mountain.drawMountain(g, new Dot(50, 400), new Dot(200, 450), new Dot(125, 250), 100);
-        bird.drawBird(g, new Dot(50, 50), 20);
+        bird.drawBird(g, new Dot(50, 50), 100);
     }
 }

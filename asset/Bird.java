@@ -11,7 +11,7 @@ public class Bird {
 
   customDrawing.drawCurve(g, new Dot[]{
    startPoint,
-   new Dot(startPoint.getX() + (size / 2), startPoint.getY()),
+   new Dot(startPoint.getX(), startPoint.getY() - 10),
    new Dot(startPoint.getX() + 10, startPoint.getY())
   });
  }
