@@ -35,28 +35,37 @@ public class CustomDrawing extends JLabel {
     }
 
     public void drawCurve(Graphics g, Dot[] dots) {
-        if (dots.length < 2)
-            return;
-    
         int n = dots.length - 1;
-        int[] x = new int[dots.length];
-        int[] y = new int[dots.length];
-    
-        for (double t = 0.0; t <= 1.0; t += 0.00000001) {
-            for (int i = 0; i < dots.length; i++) {
-                x[i] = dots[i].getX();
-                y[i] = dots[i].getY();
+
+        for (double t = 0.0; t <= 1.0; t += 0.00001) {
+            double x = 0.0, y = 0.0;
+            for (int i = 0; i <= n; i++) {
+                // Calculate Bernstein polynomial directly within the loop
+                double b = choose(n, i) * Math.pow(t, i) * Math.pow(1 - t, n - i);
+                x += dots[i].x * b;
+                y += dots[i].y * b;
             }
-    
-            for (int k = 1; k <= n; k++) {
-                for (int i = 0; i <= n - k; i++) {
-                    x[i] = (int) ((1 - t) * x[i] + t * x[i + 1]);
-                    y[i] = (int) ((1 - t) * y[i] + t * y[i + 1]);
-                }
-            }
-    
-            g.drawLine(x[0], y[0], x[0], y[0]);
+
+            g.drawLine((int)x, (int)y, (int)x, (int)y);
         }
+    }
+
+    // Binomial coefficient calculation
+    private int choose(int n, int i) {
+        // Factorial calculation within choose
+        int nFact = 1;
+        for (int j = 2; j <= n; j++) {
+            nFact *= j;
+        }
+        int iFact = 1;
+        for (int j = 2; j <= i; j++) {
+            iFact *= j;
+        }
+        int niFact = 1;
+        for (int j = 2; j <= n - i; j++) {
+            niFact *= j;
+        }
+        return nFact / (iFact * niFact);
     }
 
     public void drawCircle(Graphics g, Dot center, int radius) {
