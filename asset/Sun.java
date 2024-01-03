@@ -9,7 +9,7 @@ import asset.draw.Dot;
 
 public class Sun extends JPanel {
 
-    public void drawSun(Graphics g, Dot center, int radius, int margin, int count) {
+    public void drawSun(Graphics g, Dot center, int radius, int margin, int count, int rotate) {
         CustomDrawing customDrawing = new CustomDrawing();
         double angle = 360 / count;
         Dot[] vertexs = new Dot[count];
@@ -17,10 +17,9 @@ public class Sun extends JPanel {
         int centerY = center.getY();
 
         for(int i = 0; i < count; i++){
-            int x = (int) (centerX + (radius * Math.cos(Math.toRadians(angle) * i)));
-            int y = (int) (centerY + (radius * Math.sin(Math.toRadians(angle) * i)));
+            int x = (int) (centerX + ((i % 2 == 0 ? radius : radius - margin) * Math.cos(Math.toRadians(angle + rotate) * i)));
+            int y = (int) (centerY + ((i % 2 == 0 ? radius : radius - margin) * Math.sin(Math.toRadians(angle + rotate) * i)));
             vertexs[i] = new Dot(x, y);
-            // customDrawing.plot(g, x, y, 2);
         }
 
         for(int i = 0; i < count; i++){
