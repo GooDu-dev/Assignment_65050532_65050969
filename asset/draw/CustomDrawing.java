@@ -5,14 +5,24 @@ import java.awt.Graphics;
 
 public class CustomDrawing extends JLabel {
     public void drawLine(Graphics g, Dot start, Dot dest, int size) {
-        int m = 2 * (dest.y - start.y);
-        int slope_error = m - (dest.x - start.x);
-        for (int x = start.x, y = start.y; x <= dest.x; x++) {
-            plot(g, x, y, size);
-            slope_error += m;
-            if (slope_error >= 0) {
-                y++;
-                slope_error -= 2 * (dest.x - start.x);
+        int dx = Math.abs(dest.x - start.x);
+        int dy = Math.abs(dest.y - start.y);
+        int sx = (start.x < dest.x) ? 1 : -1;
+        int sy = (start.y < dest.y) ? 1 : -1;
+
+        int err = dx - dy;
+
+        while (!(start.x == dest.x && start.y == dest.y)) {
+            plot(g, start.x, start.y, size);
+
+            int err2 = 2 * err;
+            if (err2 > -dy) {
+                err -= dy;
+                start.x += sx;
+            }
+            if (err2 < dx) {
+                err += dx;
+                start.y += sy;
             }
         }
     }

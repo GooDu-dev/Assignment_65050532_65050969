@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 import asset.Picture;
 
 public class App extends JFrame {
-    static final int WIDTH = 800, HEIGHT = 600;
+    static final int WIDTH = 600, HEIGHT = 600;
     static Picture p = new Picture();
 
     public App(String title) {
