@@ -14,7 +14,8 @@ public class Picture extends JLabel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        sun.drawSun(g);
+        sun.drawSun(g, new Dot(300, 300), 200, 10, 16);
+        sun.drawSun(g, new Dot(300, 300), 100, 10, 16);
         cloud.draw(g);
     }
 }

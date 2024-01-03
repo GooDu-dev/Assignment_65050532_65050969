@@ -171,7 +171,7 @@ public class CustomDrawing extends JLabel {
         plot(g, center.getX() - x, center.getY() - y, 1);
     }
 
-    private void plot(Graphics g, int x, int y, int size) {
+    public void plot(Graphics g, int x, int y, int size) {
         g.fillRect(x, y, size, size);
     }
 }
