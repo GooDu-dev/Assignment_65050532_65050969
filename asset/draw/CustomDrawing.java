@@ -34,30 +34,31 @@ public class CustomDrawing extends JLabel {
                 3);
     }
 
-    public void drawCurve(Graphics g, Dot[] dots) {
-        if (dots.length < 2)
-            return;
-        int n = dots.length - 1;
-        for (double t = 0.0; t <= 1.0; t += 0.001) {
-            int[] x = new int[dots.length];
-            int[] y = new int[dots.length];
+    public void drawCurve(Graphics g, Dot[] controlPoints) {
+    if (controlPoints.length < 2) {
+        return;
+    }
 
-            for (int i = 0; i < dots.length; i++) {
-                x[i] = dots[i].getX();
-                y[i] = dots[i].getY();
-            }
+    int n = controlPoints.length - 1;
+    int[] x = new int[n + 1];
+    int[] y = new int[n + 1];
 
-            for (int r = 1; r <= n; r++) {
-                for (int i = 0; i <= n - r; i++) {
-                    x[i] = (int) ((1 - t) * x[i] + t * x[i + 1]);
-                    y[i] = (int) ((1 - t) * y[i] + t * y[i + 1]);
-                }
-            }
-
-            g.drawLine(x[0], y[0], x[0], y[0]);
+    for (double t = 0.0; t <= 1.0; t += 0.001) {
+        for (int i = 0; i <= n; i++) {
+            x[i] = controlPoints[i].getX();
+            y[i] = controlPoints[i].getY();
         }
 
+        for (int k = 1; k <= n; k++) {
+            for (int i = 0; i <= n - k; i++) {
+                x[i] = (int) ((1 - t) * x[i] + t * x[i + 1]);
+                y[i] = (int) ((1 - t) * y[i] + t * y[i + 1]);
+            }
+        }
+
+        g.drawLine(x[0], y[0], x[0], y[0]);
     }
+}
 
     public void drawCircle(Graphics g, Dot center, int radius) {
         int x = 0;
