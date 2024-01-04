@@ -3,11 +3,11 @@ package asset;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import asset.draw.Dot;
 
-public class Picture extends JLabel {
+public class Picture extends JPanel {
     Sun sun = new Sun();
     Cloud cloud = new Cloud(new Dot(400, 500), 100, 50, Color.blue);
     Mountain mountain = new Mountain();

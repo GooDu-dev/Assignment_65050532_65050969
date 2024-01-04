@@ -2,12 +2,10 @@ package asset;
 
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
-
 import asset.draw.CustomDrawing;
 import asset.draw.Dot;
 
-public class Mountain extends JPanel {
+public class Mountain {
  public void drawMountain(Graphics g, Dot startPoint, Dot endPoint, Dot curvePoint, int height) {
   CustomDrawing customDrawing = new CustomDrawing();
 

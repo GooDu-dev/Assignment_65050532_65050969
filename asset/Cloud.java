@@ -3,12 +3,10 @@ package asset;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
-
 import asset.draw.CustomDrawing;
 import asset.draw.Dot;
 
-public class Cloud extends JPanel {
+public class Cloud {
 
     private Dot center;
     private int size_x, size_y;
