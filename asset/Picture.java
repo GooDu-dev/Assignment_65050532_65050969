@@ -23,7 +23,7 @@ public class Picture extends JPanel {
         this.sun = new Sun(new Color(253, 184, 19));
         this.cloud = new Cloud(new Dot(400, 500), 100, 50, new Color(163, 232, 253));
         this.mountain = new Mountain(new Color(60, 37, 21));
-        this.bird = new Bird();
+        this.bird = new Bird(new Color(0, 0, 0));
         setBackground(Color.white);
     }
 
