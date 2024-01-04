@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 
 import asset.draw.CustomDrawing;
 import asset.draw.Dot;
+import asset.draw.Fill;
 
 public class Cloud extends JLabel {
 
@@ -27,16 +28,23 @@ public class Cloud extends JLabel {
         this.circle2 = new Dot(center.getX() + size_x * 2 / 3, center.getY() - size_y * 4 / 5);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        draw(g);
-    }
-
-    public void draw(Graphics g) {
+    public void drawCloud(Graphics g) {
         CustomDrawing cd = new CustomDrawing();
         g.setColor(color);
         cd.drawCircle(g, circle1, circle1Radius);
+        fill(g, circle1, Color.WHITE);
         cd.drawCircle(g, circle2, circle2Radius);
+        fill(g, circle2, Color.WHITE);
         cd.drawOval(g, center, size_x, size_y);
+        fill(g, new Dot(center.getX() - size_x / 3, center.getY()), Color.WHITE);
+    }
+
+    public void fill(Graphics g, Dot center, Color targetColor) {
+        Fill fill = new Fill();
+        Picture.bf = fill.FloodFill(g, center, targetColor, color);
+    }
+
+    public Dot getCenter() {
+        return center;
     }
 }

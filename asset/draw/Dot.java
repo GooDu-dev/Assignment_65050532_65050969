@@ -15,4 +15,9 @@ public class Dot {
     public int getY() {
         return y;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Dot[%d, %d]", x, y);
+    }
 }
