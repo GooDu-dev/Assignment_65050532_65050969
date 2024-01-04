@@ -2,11 +2,7 @@ package asset.draw;
 
 import javax.swing.JLabel;
 
-import asset.Picture;
-
-import java.awt.Color;
 import java.awt.Graphics;
-import java.util.function.Function;
 
 public class CustomDrawing extends JLabel {
     public void drawLine(Graphics g, Dot start, Dot dest, int size) {
