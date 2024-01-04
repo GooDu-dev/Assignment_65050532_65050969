@@ -46,7 +46,7 @@ public class CustomDrawing extends JLabel {
                 y += dots[i].y * b;
             }
 
-            g.drawLine((int)x, (int)y, (int)x, (int)y);
+            g.drawLine((int) x, (int) y, (int) x, (int) y);
         }
     }
 
@@ -95,46 +95,6 @@ public class CustomDrawing extends JLabel {
         plot(g, center.getX() - y, center.getY() + x, 1);
         plot(g, center.getX() - y, center.getY() - x, 1);
     }
-
-    // public void drawOval(Graphics g, Dot center, int radiusA, int radiusB) {
-    // int x = 0;
-    // int y = radiusB;
-    // long radiusASquare = radiusA * radiusB;
-    // long radiusBSquare = radiusA * radiusB;
-    // long twoASquare = 2 * radiusASquare;
-    // long twoBSquare = 2 * radiusBSquare;
-    // long xChange = radiusBSquare * (1 - 2 * radiusA) + radiusASquare;
-    // long yChange = radiusBSquare - radiusBSquare * (2 * radiusB + 1);
-    // while (radiusASquare * y >= radiusBSquare * x) {
-    // plotOval(g, center, x, y);
-
-    // x++;
-    // if (xChange < 0) {
-    // xChange += twoBSquare * x + radiusBSquare;
-    // } else {
-    // y--;
-    // xChange += twoBSquare * x + radiusBSquare - twoASquare * y;
-    // yChange -= twoASquare * y - radiusASquare;
-    // }
-    // }
-    // x = radiusA;
-    // y = 0;
-    // xChange = radiusBSquare - radiusASquare * (2 * radiusB + 1);
-    // yChange = radiusASquare * (1 - 2 * radiusB) + radiusBSquare;
-
-    // while (radiusASquare * y <= radiusBSquare * x) {
-    // plotOval(g, center, x, y);
-
-    // y++;
-    // if (yChange < 0) {
-    // yChange += twoASquare * y + radiusASquare;
-    // } else {
-    // x--;
-    // yChange += twoASquare * y + radiusASquare - twoBSquare * x;
-    // xChange -= twoBSquare * x - radiusBSquare;
-    // }
-    // }
-    // }
 
     public void drawOval(Graphics g, Dot center, int rx, int ry) {
 
