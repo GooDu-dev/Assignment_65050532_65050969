@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
+import asset.MomoFace;
 import asset.Picture;
 
 public class App extends JFrame {

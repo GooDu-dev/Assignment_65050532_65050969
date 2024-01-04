@@ -30,16 +30,17 @@ public class Cloud extends JLabel {
 
     public void drawCloud(Graphics g) {
         CustomDrawing cd = new CustomDrawing();
+        Color backgroudColor = new Color(81, 128, 151, 255);
         g.setColor(color);
 
         cd.drawCircle(g, circle1, circle1Radius);
-        fill(g, circle1, Color.WHITE);
+        fill(g, circle1, backgroudColor);
 
         cd.drawCircle(g, circle2, circle2Radius);
-        fill(g, circle2, Color.WHITE);
+        fill(g, circle2, backgroudColor);
 
         cd.drawOval(g, center, size_x, size_y);
-        fill(g, new Dot(center.getX() - size_x / 3, center.getY()), Color.WHITE);
+        fill(g, new Dot(center.getX() - size_x / 3, center.getY()), backgroudColor);
     }
 
     public void fill(Graphics g, Dot center, Color targetColor) {
