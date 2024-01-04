@@ -8,14 +8,8 @@ import asset.draw.Dot;
 import asset.draw.Fill;
 
 public class Sun {
-
-    private Color color;
-
-    public Sun(Color color) {
-        this.color = color;
-    }
-
-    public void drawSun(Graphics g, Dot center, int radius, int margin, int count, int rotate) {
+    public void drawSun(Graphics g, Dot center, int radius, int margin, int count, int rotate, Color color,
+            Color fillIn) {
         CustomDrawing customDrawing = new CustomDrawing();
         double angle = 360 / count;
         Dot[] vertexs = new Dot[count];
@@ -31,7 +25,6 @@ public class Sun {
                     + ((i % 2 == 0 ? radius : radius - margin) * Math.sin(Math.toRadians(angle + rotate) * i)));
             vertexs[i] = new Dot(x, y);
         }
-        // fill(g, center, color);
 
         for (int i = 0; i < count; i++) {
             customDrawing.drawCurve(g, new Dot[] {
@@ -40,10 +33,11 @@ public class Sun {
                     new Dot(vertexs[i != count - 1 ? i + 1 : 0].getX(), vertexs[i != count - 1 ? i + 1 : 0].getY()),
             });
         }
-        // fill(g, center, color);
+
+        fill(g, center, fillIn, color);
     }
 
-    public void fill(Graphics g, Dot center, Color targetMorning) {
-        Picture.bf = Fill.FloodFill(g, center, targetMorning, color);
+    public void fill(Graphics g, Dot center, Color targetColor, Color replacementColor) {
+        Picture.bf = Fill.FloodFill(g, center, targetColor, replacementColor);
     }
 }
